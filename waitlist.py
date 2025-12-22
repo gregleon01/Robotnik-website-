@@ -15,7 +15,8 @@ EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')
 
 # Google Sheets configuration
 SPREADSHEET_ID = "11_El1DyoAwKiV4zJSlY5pFiU_WLp7F7Qrh0IQgJCxc8"
-CREDENTIALS_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'google_sheets_service.json')
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+CREDENTIALS_FILE = os.path.join(BASE_DIR, 'google_sheets_service.json')
 
 def get_google_sheets_client():
     """Initialize Google Sheets client"""
@@ -179,4 +180,3 @@ def health_check():
         'service': 'RobotNik Waitlist API',
         'timestamp': datetime.now().isoformat()
     }), 200
-
